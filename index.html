@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MINISTRY OF RANDOM AFFAIRS</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@600;800&family=Cairo:wght@600;700&display=swap">
+<style>
+:root{--bg:#17120f;--paper:#efe3c6;--paper2:#e2d2a8;--ink:#231d17;--grey:#6b6150;--red:#c0392b;--gold:#d9a441;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;min-height:100vh;color:var(--ink);font-family:"Cairo","Segoe UI",Tahoma,Arial,sans-serif;font-weight:600;background:radial-gradient(circle at 50% 0,#2b2019,var(--bg) 70%);overflow-x:hidden}
+@media (hover:hover){body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;background:radial-gradient(circle 300px at var(--mx,50%) var(--my,35%),transparent 0,#0000 40%,#0006 100%)}}
+.fl{position:fixed;font-size:34px;opacity:.13;animation:fl 14s linear infinite;z-index:0;pointer-events:none}
+@keyframes fl{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-15vh) rotate(360deg)}}
+.sheet{position:relative;z-index:1;max-width:560px;margin:22px auto;min-height:calc(100vh - 44px);background:linear-gradient(var(--paper),var(--paper2));border-radius:6px 22px 6px 22px;padding:30px 20px 36px;box-shadow:0 12px 50px #000c,inset 0 0 60px #8a6a2a30}
+.sheet:before{content:"📎";position:absolute;top:-14px;left:26px;font-size:40px;transform:rotate(-15deg)}
+.sheet:after{content:"CONFIDENTIAL";position:absolute;top:46%;left:50%;transform:translate(-50%,-50%) rotate(-24deg);font:800 54px "Courier New",monospace;color:#a02a1e12;border:6px solid #a02a1e12;padding:0 14px;pointer-events:none;white-space:nowrap}
+.mono{font-family:"Courier New",Courier,monospace}
+.hdr{text-align:center;margin-bottom:22px;position:relative;z-index:1}
+.hdr small{display:block;letter-spacing:.28em;font-size:10px;color:var(--grey);font-family:"Courier New",monospace}
+.hdr h1{margin:4px 0 8px;font:800 clamp(19px,5.4vw,27px) "Courier New",monospace;letter-spacing:.1em}
+.top{display:inline-block;color:var(--red);border:2px dashed var(--red);border-radius:8px;padding:2px 12px;font-weight:700;font-size:13px;transform:rotate(-2deg)}
+.screen{display:none;position:relative;z-index:1;animation:in .55s ease}
+.screen.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.btn,.back{font-family:"Baloo Bhaijaan 2","Cairo",sans-serif;cursor:pointer;color:#fff7e6;background:var(--red);border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);transition:transform .12s,box-shadow .12s}
+.btn{font-size:21px;font-weight:800;border-radius:999px;padding:12px 30px;margin-top:18px}
+.btn:hover,.back:hover{transform:translate(-1px,-3px) rotate(-1deg);box-shadow:6px 7px 0 var(--ink)}
+.btn:active,.back:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none}
+.back{display:block;width:100%;margin-top:30px;padding:18px;font-size:22px;font-weight:800;color:var(--ink);background:var(--gold);border-radius:18px}
+.c{text-align:center}
+#lock{padding-top:4vh}
+#lock p{font-size:17px;line-height:2;color:var(--grey);margin:0 0 18px}
+.eyebig{font-size:64px;animation:blink 4s infinite}
+@keyframes blink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.pwbox{position:relative;display:inline-block}
+#pw{font:800 26px "Courier New",monospace;letter-spacing:.35em;text-align:center;width:230px;background:#fff7;border:3px solid var(--ink);border-radius:14px;padding:10px;color:var(--ink);outline:none;text-transform:uppercase}
+.eye{position:absolute;right:-52px;top:6px;font-size:22px;background:var(--gold);border:3px solid var(--ink);border-radius:50%;width:42px;height:42px;cursor:pointer;padding:0;line-height:1}
+.shake{animation:sh .4s}@keyframes sh{25%{transform:translateX(-9px)}75%{transform:translateX(9px)}}
+.stamp{display:inline-block;color:var(--red);border:4px solid var(--red);border-radius:10px;padding:4px 14px;font:800 20px "Courier New",monospace;letter-spacing:.1em;text-transform:uppercase;transform:rotate(-6deg);mix-blend-mode:multiply}
+.slam{animation:slam .35s ease-out}@keyframes slam{from{transform:rotate(-6deg) scale(2.4);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+#denied{min-height:56px;margin-top:20px}
+.wel{font:800 clamp(13px,5.2vw,30px) "Courier New",monospace;letter-spacing:.04em;margin:6px 0 18px;animation:pop .7s;white-space:nowrap}
+.wel span{font-size:.7em}
+@keyframes pop{0%{transform:scale(.4);opacity:0}70%{transform:scale(1.1)}100%{transform:scale(1);opacity:1}}
+.photo{width:170px;margin:8px auto;background:#fbf4e0;padding:9px 9px 26px;box-shadow:2px 5px 14px #0006;transform:rotate(-3deg);position:relative;border-radius:4px}
+.photo:before{content:"";position:absolute;width:60px;height:18px;background:#d9a441aa;top:-9px;left:50%;margin-left:-30px;transform:rotate(3deg)}
+.photo .img{height:170px;background:#c9bda0;display:flex;align-items:center;justify-content:center;font-size:13px;color:#4a4437;text-align:center;filter:sepia(.35) contrast(1.05);overflow:hidden}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo p{margin:6px 0 0;font:12px "Courier New",monospace;letter-spacing:.1em}
+.meta{font-size:17px;line-height:2;margin-bottom:14px}
+.grid{display:grid;gap:28px}
+.case{border:3px solid var(--ink);border-radius:16px;padding:14px 16px 14px 16px;cursor:pointer;background:#fff6;position:relative;box-shadow:4px 4px 0 var(--ink);transition:.15s}
+.case:nth-child(odd){transform:rotate(-.6deg)}.case:nth-child(even){transform:rotate(.6deg)}
+.case:hover{transform:translate(-2px,-3px) rotate(0);background:#fffb}
+.case{text-align:center;padding:20px 16px}
+.case b{display:block;font:800 21px "Courier New",monospace;letter-spacing:.12em}
+.case span{font-size:16px;color:var(--grey)}
+.case .tag{position:absolute;top:-12px;left:14px;font:800 11px "Courier New",monospace;background:var(--red);color:#fff;padding:2px 9px;border-radius:99px;border:2px solid var(--ink)}
+.case.done .tag{background:#5d7a4a}
+.prog{text-align:center;font-size:16px;color:var(--grey);margin-top:22px}
+.file h2{margin:0;font:800 21px "Courier New",monospace;letter-spacing:.04em}
+.row{display:flex;flex-wrap:wrap;gap:4px 14px;font:12px "Courier New",monospace;border-top:2px dashed var(--ink);border-bottom:2px dashed var(--ink);padding:8px 0;margin:10px 0 16px}
+.report{font-size:20px;line-height:2.1;min-height:100px;white-space:pre-wrap}
+.evid{margin-top:20px;border:3px dotted var(--grey);border-radius:14px;padding:12px 14px;font-size:17px;line-height:2;background:#fff4}
+.evid h4{margin:0;font:800 12px "Courier New",monospace;letter-spacing:.2em;color:var(--red)}
+/* chat */
+.chat{background:#1f1914;border-radius:20px;padding:12px;min-height:300px;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.chead{color:#efe3c6;font:700 13px "Courier New",monospace;padding:4px 6px 10px;border-bottom:1px solid #fff2;margin-bottom:10px}
+.chead i{display:inline-block;width:9px;height:9px;background:#5fd16a;border-radius:50%;margin-right:6px}
+.bub{max-width:92%;background:var(--paper);color:var(--ink);border-radius:18px 18px 18px 4px;padding:10px 14px;margin:8px 0;font-size:19px;line-height:2;white-space:pre-wrap;animation:pop .35s}
+.dots span{display:inline-block;width:9px;height:9px;margin:0 2px;border-radius:50%;background:var(--grey);animation:db 1s infinite}
+.dots span:nth-child(2){animation-delay:.15s}.dots span:nth-child(3){animation-delay:.3s}
+@keyframes db{50%{transform:translateY(-6px)}}
+#party{text-align:center;min-height:90px;margin-top:20px}
+#party h3{margin:0;font:800 clamp(22px,6.5vw,30px) "Courier New",monospace;animation:pop .8s}
+.photo.big{width:min(300px,86%);margin:22px auto 14px}
+.photo.big .img{height:auto;min-height:150px}.photo.big img{height:auto;max-height:380px}
+.cap{font-size:20px;line-height:2;text-align:center;margin:12px 0}
+.reveal{animation:pop .5s}
+.ans{font:700 19px "Cairo",sans-serif;width:90%;text-align:center;background:#fff8;border:3px solid var(--ink);border-radius:14px;padding:10px;outline:none;color:var(--ink)}
+.player{margin:26px auto 12px;max-width:340px;background:linear-gradient(160deg,#2a1b3a,#16101f 70%);color:#f3e9ff;border-radius:26px;padding:18px;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink)}
+.prow{display:flex;gap:14px;align-items:center}
+.poster{width:96px;height:96px;flex:none;border-radius:14px;background:radial-gradient(circle at 30% 25%,#ff6a88,#b4236b 55%,#3a0f4d);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 6px 16px #0008}
+.poster{overflow:hidden}.poster img{width:100%;height:100%;object-fit:cover}.poster b{font:800 15px "Courier New",monospace;letter-spacing:.15em}.poster i{font-size:30px;font-style:normal}
+.ptitle{font:800 28px "Baloo Bhaijaan 2",sans-serif;line-height:1.3}.partist{font-size:14px;opacity:.7}
+.eq{display:flex;gap:4px;align-items:flex-end;height:26px;margin-top:8px}
+.eq u{width:5px;background:#ff6a88;border-radius:3px;animation:eq 1s ease-in-out infinite}
+.eq u:nth-child(2){animation-delay:.2s}.eq u:nth-child(3){animation-delay:.4s}.eq u:nth-child(4){animation-delay:.1s}.eq u:nth-child(5){animation-delay:.5s}.eq u:nth-child(6){animation-delay:.3s}
+@keyframes eq{0%,100%{height:5px}50%{height:26px}}
+.pcap{text-align:center;font-size:17px;margin:14px 0 4px}
+.bar{height:6px;background:#ffffff30;border-radius:9px;margin:14px 0}.fill{width:38%;height:100%;background:linear-gradient(90deg,#ff6a88,#ffb36a);border-radius:9px}
+.ctl{display:flex;justify-content:center;align-items:center;gap:26px}
+.play{width:56px;height:56px;border-radius:50%;background:#ff6a88;position:relative;display:block;box-shadow:0 4px 14px #ff6a8877}
+.play:after{content:"";position:absolute;left:22px;top:16px;border-left:18px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent}
+.sk{width:0;height:0;border-right:16px solid #f3e9ff;border-top:10px solid transparent;border-bottom:10px solid transparent;opacity:.7}.sk.r{transform:scaleX(-1)}
+.lis{display:inline-block;text-decoration:none;margin-top:14px}.alt{display:inline-block;margin-top:12px;color:var(--ink);font-size:15px}
+.miss{display:block;padding:30px 10px;font-size:14px;color:#4a4437}
+#cv{position:fixed;inset:0;pointer-events:none;z-index:60}
+.bal{position:fixed;bottom:-80px;font-size:46px;z-index:61;pointer-events:none;animation:up 6s ease-in forwards}
+@keyframes up{to{transform:translateY(-120vh) rotate(20deg)}}
+</style>
+</head>
+<body>
+<span class="fl" style="left:6%;animation-delay:0s">❓</span><span class="fl" style="left:20%;animation-delay:4s">🔍</span><span class="fl" style="left:78%;animation-delay:2s">🕵️</span><span class="fl" style="left:90%;animation-delay:7s">🐟</span>
+<canvas id="cv"></canvas>
+<div class="sheet">
+  <div class="hdr">
+    <small>REPUBLIC OF NOWHERE · EST. WHENEVER</small>
+    <h1>MINISTRY OF RANDOM AFFAIRS</h1>
+    <div class="top">TOP SECRET 🤫 (جدًا جدًا)</div>
+  </div>
+
+  <div id="lock" class="screen on c">
+    <div class="eyebig">👁️</div>
+    <p><span class="mono" style="font-size:12px">FILE NO. <span id="fno"></span> · SUBJECT: MOHAMED</span><br>اكتب الباسورد عشان تعرف تدخل</p>
+    <span class="pwbox"><input id="pw" type="password" maxlength="12" autocomplete="off" aria-label="Password" placeholder="••••"><button class="eye" id="eye" type="button" aria-label="Show password">👁️</button></span>
+    <br><button class="btn" id="go">🔓 افتح الملف</button>
+    <div id="denied"></div>
+  </div>
+
+  <div id="welcome" class="screen c">
+    <div class="photo"><div class="img" id="wph"></div><p>SUBJECT: MOHAMED</p></div>
+    <div class="wel">WELCOME BACK YA BOSS <span>👑</span></div>
+    <button class="btn" id="next">NEXT ➜ يلا بينا</button>
+  </div>
+
+  <div id="index" class="screen">
+    <div class="meta c">أهلًا يا <b class="mono">AGENT MOHAMED</b> 🕵️<br>دي القضايا اللي اتسجلت ضدك (كلها ظلم طبعًا).<br>افتحهم كلهم وهتتفتح لك مفاجأة 🎁</div>
+    <div class="grid" id="cases"></div>
+    <div class="prog" id="prog"></div>
+    <div class="c"><button class="btn" id="finalBtn" disabled>🎁 افتح الرسالة السرية</button></div>
+  </div>
+
+  <div id="case" class="screen file">
+    <h2 id="cTitle"></h2>
+    <div class="row" id="cMeta"></div>
+    <div class="report" id="cReport" dir="auto"></div>
+    <div id="cBody" dir="auto"></div>
+    <div class="c" style="margin-top:22px;min-height:60px" id="cStamp"></div>
+    <button class="back" id="back">🗂️ ارجع للأرشيف</button>
+  </div>
+
+  <div id="final" class="screen">
+    <div class="chat"><div class="chead"><i></i>MINISTRY 🕵️ · online</div><div id="msgs" dir="rtl"></div></div>
+    <div id="party"></div>
+  </div>
+</div>
+
+<script>
+/* ===== عدّلي هنا ===== */
+var PASSWORD="BOSS";
+/* الصور: baby, shalaby, movie, arish (jpg أو png) جنب الملف */
+var YT="https://youtu.be/L49Fp8nbXDk?si=IFSnkB02amKHAaoq";
+var CASES=[
+ {n:"01",title:"THE TUNA INCIDENT 🐟",date:"●●/●●/●●●●",loc:"[REDACTED]",status:"NEW NOTE"},
+ {n:"02",title:"THE POP QUIZ 🧠",date:"●●/●●/●●●●",loc:"CLASSROOM 404",status:"SURPRISE TEST"},
+ {n:"03",title:"THE SOUNDTRACK 🎧",date:"●●/●●/●●●●",loc:"UNKNOWN",status:"AUDIO EVIDENCE"},
+ {n:"04",title:"THE ROAD TO ARISH 🚗",date:"●●/●●/●●●●",loc:"NORTH SINAI",status:"PROMISE ON RECORD"}
+];
+var MSGS=[
+ "إلى: المستشار محمد 🕵️\nمن: وزارة الشؤون العشوائية",
+ "بعد مراجعة كل القضايا والأدلة، قررت اللجنة بالإجماع إنك أنسب شخص لسنة جديدة مليانة حاجات حلوة.",
+ "Well, ya boss… 👑\nCongratulations! You’ve officially survived another year of being you😂",
+ "كل سنة وأنت طيب يا محمد ويارب سنتك الجديدة تكون مليانة حاجات حلوة ونجاحات تفرحك وضحك من قلبك وأيام تبقى أخف وأجمل عليك",
+ "أتمنى تفضل دايمًا عندك نفس الروح اللي بتخلى حتى أبسط المواقف تتحول لذكرى تتحكى ونفس قدرتك إنك تسيب أثر حلو من غير ما تاخد بالك",
+ "مبسوطة إن بيننا ذكريات وإفيهات من النوع اللي ممكن نفتكره بعد فترة ونضحك عليه كأن الموقف حصل امبارح 😂",
+ "أتمنى لك سنة شبه الحاجات اللي بتتمناها لنفسك ويمكن أحلى كمان\nHappy Birthday, ya boss. 🤍",
+
+];
+/* ==================== */
+var $=function(i){return document.getElementById(i)};
+var EXT=["jpg","jpeg","png","webp","JPG","PNG","JPEG"];
+function IMG(n){return '<img alt="" data-n="'+n+'" data-k="0" src="'+n+'.jpg">'}
+document.addEventListener("error",function(e){var t=e.target;if(t.tagName!=="IMG")return;var k=+t.dataset.k+1;
+  if(k<EXT.length){t.dataset.k=k;t.src=t.dataset.n+"."+EXT[k]}else if(t.dataset.n==="elissa"){t.outerHTML='<b>ELISSA</b><i>♪</i>'}else{t.outerHTML='<span class="miss">[ ضيفي الصورة باسم '+t.dataset.n+' ]</span>'}},true);
+var seen={},typing=null,run=0;
+$("fno").textContent="MRA-"+new Date().getFullYear()+"-"+Math.floor(1000+Math.random()*8999);
+$("wph").innerHTML=IMG("baby");
+document.addEventListener("pointermove",function(e){document.body.style.setProperty("--mx",e.clientX+"px");document.body.style.setProperty("--my",e.clientY+"px")});
+function show(id){["lock","welcome","index","case","final"].forEach(function(s){$(s).classList.toggle("on",s===id)});window.scrollTo(0,0)}
+function type(el,text,cb,sp){clearInterval(typing);var i=0;typing=setInterval(function(){i+=1;el.textContent=text.slice(0,i);if(i>=text.length){clearInterval(typing);cb&&cb()}},sp||26)}
+function stamp(el,t){el.innerHTML='<span class="stamp slam">'+t+'</span>'}
+function tryPw(){
+  if($("pw").value.trim().toUpperCase()===PASSWORD){
+    $("denied").innerHTML='<span class="stamp slam" style="color:#3d7a3f;border-color:#3d7a3f">ACCESS GRANTED ✅</span>';
+    setTimeout(function(){show("welcome")},900);
+  }else{
+    $("denied").innerHTML='<span class="stamp slam">ACCESS DENIED ❌</span>';
+    $("pw").classList.remove("shake");void $("pw").offsetWidth;$("pw").classList.add("shake");$("pw").value="";
+  }
+}
+$("go").onclick=tryPw;
+$("pw").addEventListener("keydown",function(e){if(e.key==="Enter")tryPw()});
+$("eye").onclick=function(){var p=$("pw"),h=p.type==="password";p.type=h?"text":"password";this.textContent=h?"🙈":"👁️"};
+$("next").onclick=function(){show("index");build()};
+function build(){
+  var box=$("cases");box.innerHTML="";
+  CASES.forEach(function(c,i){
+    var d=document.createElement("div");d.className="case"+(seen[i]?" done":"");
+    d.innerHTML='<div class="tag">'+(seen[i]?"REVIEWED ✔":"SEALED 🔒")+'</div><b>CASE '+c.n+'</b>';
+    d.onclick=function(){openCase(i)};box.appendChild(d);
+  });
+  var n=Object.keys(seen).length;
+  $("prog").textContent="الملفات اللي اتفتحت: "+n+" / "+CASES.length;
+  $("finalBtn").disabled=n<CASES.length;
+}
+function photo(n,cap){return '<div class="photo big"><div class="img">'+IMG(n)+'</div><p>'+cap+'</p></div>'}
+function add(h,d){var e=document.createElement("div");e.className="reveal";e.innerHTML=h;$("cBody").appendChild(e);return e}
+function say(t,cb){type($("cReport"),t,cb,28)}
+function openCase(i){
+  var c=CASES[i];seen[i]=1;show("case");
+  $("cTitle").textContent="CASE "+c.n;
+  $("cMeta").innerHTML="<span>DATE: "+c.date+"</span><span>LOC: "+c.loc+"</span><span>STATUS: "+c.status+"</span>";
+  $("cBody").innerHTML="";$("cStamp").innerHTML="";$("cReport").textContent="";
+  var done=function(t){setTimeout(function(){stamp($("cStamp"),t)},600)};
+  if(i===0){say("ملحوظة: خلي بالك من شلبي",function(){
+    add(photo("shalaby","SUBJECT: SHALABY"));
+    setTimeout(function(){add('<div class="cap">بيسلم عليك 😂</div>');done("NOTED")},900);
+  })}
+  if(i===1){add(photo("movie","EXHIBIT 02"));
+    setTimeout(function(){add('<div class="cap">اختبار مفاجيء.. جمع كلمة أحد إيه؟</div><div class="c"><input id="ans" class="ans" placeholder="اكتب إجابتك هنا..." autocomplete="off"><br><button class="btn" id="sub">جاوب</button><div id="res" class="cap"></div></div>');
+      $("sub").onclick=function(){var v=$("ans").value.trim();
+        if(!v){$("res").textContent="اكتب إجابة الأول 😏";return}
+        $("res").textContent="الإجابة اتسجلت في الأرشيف. الوزارة هتراجعها 🧐";stamp($("cStamp"),"ANSWER LOGGED")};
+    },700)}
+  if(i===2){add('<div class="player"><div class="prow"><div class="poster">'+IMG("elissa")+'</div><div class="pinfo"><div class="ptitle">بتمون</div><div class="partist">Elissa · إليسا</div><div class="eq"><u></u><u></u><u></u><u></u><u></u><u></u></div></div></div><div class="pcap">بس بصوت أمل ماهر أحلى 🫣</div><div class="bar"><div class="fill"></div></div><div class="ctl"><span class="sk"></span><a class="play" href="'+YT+'" target="_blank" rel="noopener" aria-label="Play"></a><span class="sk r"></span></div></div><div class="c"><a class="btn lis" href="'+YT+'" target="_blank" rel="noopener">▶ LISTEN NOW</a></div>');done("NOW PLAYING")}
+  if(i===3){add(photo("arish","EXHIBIT 04"));
+    setTimeout(function(){add('<div class="cap">متنساش هتعلمني السواقة على المنيوال علشان أروح العريش😂</div>');done("PROMISE RECORDED")},800)}
+}
+$("back").onclick=function(){clearInterval(typing);show("index");build()};
+$("finalBtn").onclick=function(){show("final");$("msgs").innerHTML="";$("party").innerHTML="";chat(++run,0)};
+function chat(id,k){
+  if(id!==run)return;
+  if(k>=MSGS.length){return party()}
+  var b=document.createElement("div");b.className="bub";b.innerHTML='<span class="dots"><span></span><span></span><span></span></span>';
+  $("msgs").appendChild(b);
+  setTimeout(function(){
+    if(id!==run)return;
+    b.textContent="";
+    type(b,MSGS[k],function(){setTimeout(function(){chat(id,k+1)},500)},30);
+  },1000);
+}
+function party(){
+  $("party").innerHTML='<h3>HAPPY BIRTHDAY MOHAMED</h3>';
+  confetti();
+}
+function confetti(){
+  var cv=$("cv"),x=cv.getContext("2d");cv.width=innerWidth;cv.height=innerHeight;
+  var P=[],cols=["#c0392b","#d9a441","#3d7a3f","#2f6fa3","#efe3c6","#e07a9a"];
+  for(var i=0;i<160;i++)P.push({x:Math.random()*cv.width,y:-20-Math.random()*cv.height*.6,w:6+Math.random()*7,h:10+Math.random()*8,vy:2+Math.random()*3,vx:-1.5+Math.random()*3,r:Math.random()*6,vr:-.2+Math.random()*.4,c:cols[i%6]});
+  var t0=Date.now();
+  (function f(){
+    x.clearRect(0,0,cv.width,cv.height);
+    P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.r+=p.vr;x.save();x.translate(p.x,p.y);x.rotate(p.r);x.fillStyle=p.c;x.fillRect(-p.w/2,-p.h/2,p.w,p.h);x.restore()});
+    if(Date.now()-t0<6500)requestAnimationFrame(f);else x.clearRect(0,0,cv.width,cv.height);
+  })();
+}
+</script>
+</body>
+</html>
